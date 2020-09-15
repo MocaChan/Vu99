@@ -7,6 +7,7 @@ public class SoundController : MonoBehaviour
     public AudioClip brokenGlass, collison;
     public AudioClip[] Theme;
     AudioSource au;
+
     void Start()
     {
         au = GetComponent<AudioSource>();

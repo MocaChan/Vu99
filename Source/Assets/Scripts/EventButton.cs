@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class EventButton : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void Back()
     {
         SceneManager.LoadScene(0);
@@ -34,6 +24,4 @@ public class EventButton : MonoBehaviour
     {
         Application.Quit();
     }
-
-
 }

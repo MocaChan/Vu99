@@ -8,10 +8,6 @@ public class Ball : MonoBehaviour
     public GameObject prefabBroken, prefabColl, PrefBall, stick;
     bool startGame = true;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         if (GameCache.IsRelife == true)
@@ -35,6 +31,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //xử lý va chạm với thanh stick
         switch (other.tag)
         {
             case "ColCenter":
@@ -65,6 +62,7 @@ public class Ball : MonoBehaviour
 
         }
 
+        //va chạm với với bottom frame
         if (other.CompareTag("Crusher"))
         {
             ReLife();
@@ -77,6 +75,7 @@ public class Ball : MonoBehaviour
         }
     }
 
+    //xử lý sau khi mất 1 hp
     void ReLife()
     {
         var obj = Instantiate(PrefBall, new Vector3(stick.GetComponent<Transform>().position.x, stick.GetComponent<Transform>().position.y + 0.5f, stick.GetComponent<Transform>().position.z), Quaternion.identity);
@@ -90,6 +89,7 @@ public class Ball : MonoBehaviour
             ColEffect();
     }
 
+    //func addforce với 1 góc là tham số
     public void AddForceAtAngle(float angle)
     {
         float xcomponent = Mathf.Cos(angle * Mathf.PI / 180) * GameCache.Force;
@@ -105,6 +105,7 @@ public class Ball : MonoBehaviour
         ColEffect();
     }
 
+    //effect va chạm
     void ColEffect()
     {
         GameCache.actiCollision = true;

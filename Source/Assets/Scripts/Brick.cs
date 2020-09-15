@@ -7,14 +7,10 @@ public class Brick : MonoBehaviour
     public GameObject prefDesEffect, prefDesEffect1, prefDesEffect2, prefDesEffect3, prefDesEffect4;
     Vector3 vec;
     bool isAlive = true;
+
     void Start()
     {
         vec = transform.position;
-    }
-
-    void Update()
-    {
-        
     }
 
     private void OnCollisionEnter(Collision collision)

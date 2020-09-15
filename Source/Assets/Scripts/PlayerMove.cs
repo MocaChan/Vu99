@@ -28,7 +28,6 @@ public class PlayerMove : MonoBehaviour
             posX = transform.position.x + Input.GetAxis("Horizontal") * keyboardMoveSpeed * Time.deltaTime;
             vecPos = new Vector3(Mathf.Clamp(posX, -2.8f, 5.97f), playerpos.y, playerpos.z);
         }
-
         transform.position = vecPos;
     }
 }

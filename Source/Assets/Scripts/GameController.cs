@@ -16,9 +16,9 @@ public class GameController : MonoBehaviour
     Vector2 gameoverPos;
     Map map;
 
+    //khởi tạo các giá trị đầu game
     void Start()
     {
-
         Cursor.visible = false;
         GameCache.IsRelife = true;
         GameCache.HP = 3;
@@ -68,6 +68,8 @@ public class GameController : MonoBehaviour
             GameCache.Time = time;
         }
     }
+
+    //klấy ra thời gian người chơi đã bắn viên đạn đầu tiên
     void CheckStartGame()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && GameCache.IsPlaying == false)
@@ -76,6 +78,7 @@ public class GameController : MonoBehaviour
             GameCache.IsPlaying = true;
         }
     }
+
     void CheckHP()
     {
         if (GameCache.HP == 2)
@@ -87,6 +90,8 @@ public class GameController : MonoBehaviour
             effecHP2.SetActive(false);
         }
     }
+
+    //kiểm tra người chơi qua màn và set các biến liên quan
     void CheckRound()
     {
         Debug.Log(GameCache.countDes + " _ " + countFireWall+" - "+Time.time);
@@ -113,6 +118,7 @@ public class GameController : MonoBehaviour
             panelRound.SetActive(false);
     }
 
+    //thời gian delay lúc chuyển màn
     void DisableInput2S()
     {
         if (Time.time < disInputTime)
@@ -121,6 +127,7 @@ public class GameController : MonoBehaviour
         //    GameCache.IsPlaying = true;
     }
 
+    //func khởi tạo map cho mỗi màn chơi
     public void createMap()
     {
         map = new Map();
@@ -165,6 +172,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    //tăng tốc độ viên đạn vầ giảm thời gian qua mỗi màn chơi
     void LevelUp()
     {
         if (timeLvl > 30 && round!=1)
