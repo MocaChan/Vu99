@@ -47,7 +47,9 @@ public class LoadData
                 }
            }
 
-        data = File.ReadAllText(Application.dataPath + "/"+ data + ".txt");
+        data = File.ReadAllText(Application.dataPath + "/map/"+ data + ".txt");
+        //data = File.ReadAllText(Application.dataPath + "/" + data + ".txt"); link khi build game
+
         Map map = new Map();
         map = JsonUtility.FromJson<Map>(data);
 
